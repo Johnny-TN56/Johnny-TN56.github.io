@@ -43,6 +43,35 @@
 
 // ----- utils ----- //
 
+          });
+
+// Initialize Isotope
+var iso = new Isotope('.isotope-container', {
+  itemSelector: '.isotope-item',
+  layoutMode: 'masonry',
+});
+
+// Filter items on button click
+document.querySelectorAll('.portfolio-filters li').forEach(function (filterButton) {
+  filterButton.addEventListener('click', function () {
+    var filterValue = this.getAttribute('data-filter');
+    iso.arrange({ filter: filterValue });
+
+    // Update active class
+    document.querySelector('.portfolio-filters .filter-active').classList.remove('filter-active');
+    this.classList.add('filter-active');
+  });
+});
+
+<div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-content">
+    <!-- Content -->
+  </div>
+  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-rank">
+    <!-- Content -->
+  </div>
+</div>
+
 var arraySlice = Array.prototype.slice;
 
 // helper function for logging errors
